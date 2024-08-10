@@ -2,6 +2,7 @@ package com.example.project.Entity;
 
 import com.example.project.Entity.Stadium;
 import jakarta.persistence.*;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -12,7 +13,9 @@ public class Company {
     private Long id;
     private String name;
     private String email;
+    private String password;
 
+    @Setter
     @OneToMany(mappedBy = "company")
     private List<Stadium> stadiums;
 
@@ -20,6 +23,7 @@ public class Company {
         this.id = id;
         this.name = name;
         this.email = email;
+
         this.stadiums = stadiums;
     }
 
@@ -53,6 +57,14 @@ public class Company {
 
     public List<Stadium> getStadiums() {
         return stadiums;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setStadiums(List<Stadium> stadiums) {

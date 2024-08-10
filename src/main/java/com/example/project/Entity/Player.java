@@ -13,6 +13,7 @@ public class Player {
     private Long id;
     private String name;
     private String email;
+    private String password;
     private String phoneNumber;
 
     @OneToMany(mappedBy = "player")
@@ -59,5 +60,13 @@ public class Player {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
