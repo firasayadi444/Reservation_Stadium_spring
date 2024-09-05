@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/stadiums")
+@RequestMapping("/api/stadiums")
+@CrossOrigin(origins = "http://localhost:4200")
 public class StadiumController {
 
     @Autowired
@@ -25,9 +26,22 @@ public class StadiumController {
         return stadiumService.getStadiumById(id);
     }
 
+//    @GetMapping
+//    public List<Stadium> getAllStadiums() {
+//        return stadiumService.getAllStadiums();
+//    }
+
     @GetMapping
-    public List<Stadium> getAllStadiums() {
-        return stadiumService.getAllStadiums();
+    public List<Stadium> getAllStadiums(
+            @RequestParam(value = "governorate", required = false) String governorate,
+            @RequestParam(value = "category", required = false) String category) {
+
+        // Logic to filter stadiums based on the parameters
+        // For example, you could pass these parameters to a service method:
+        System.out.println("gov"+governorate);
+        System.out.println("catg"+category);
+
+        return stadiumService.getAllStadiums(governorate, category);
     }
 
     @DeleteMapping("/{id}")

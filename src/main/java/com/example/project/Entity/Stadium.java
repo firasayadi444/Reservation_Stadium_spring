@@ -13,6 +13,8 @@ public  class Stadium {
     private String name;
     private String location;
     private int capacity;
+    private String governorate;
+    private String category;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -59,6 +61,22 @@ public  class Stadium {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getGovernorate() {
+        return governorate;
+    }
+
+    public void setGovernorate(String governorate) {
+        this.governorate = governorate;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public List<Reservation> getReservations() {
